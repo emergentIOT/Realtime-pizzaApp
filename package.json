@@ -5,6 +5,10 @@
   "main": "index.js",
   "author": "Amandeep Singh",
   "license": "MIT",
+  "scripts": {
+    "start-dev-server": "nodemon server.js",
+    "start-prod-server": "node server.js"
+  },
   "dependencies": {
     "ejs": "^3.1.8",
     "express": "^4.18.2",
