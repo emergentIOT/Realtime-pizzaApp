@@ -6,6 +6,8 @@
         - dev dependencies  
             - nodemon
 [.] Create Express server - Create server.js file
+[.] Setup larvel mix, https://laravel-mix.com/docs/4.0/installation
+[.] Setup tailwind css, https://tailwindcss.com/docs/installation
 [.] Create home page using html & css
     - include tailwind css
 [.] Create cart page
