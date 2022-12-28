@@ -15,3 +15,10 @@
 [.] Create order view with table for customer and admin
 [.] Create order single page with status
 [.] Create login page with route
+[.] Create register page with route
+[.] Build reister CRUD
+    - dependencies express-flash express-session cookie-parser dotnev
+    - status code article https://www.restapitutorial.com/httpstatuscodes.html
+    - Database connection , dependencies mongoose
+[.] Build login using passport
+    - Install dependencies passport passport-local express-session
