@@ -40,3 +40,12 @@ section.hero {
         color: $pure;
     }
 }
+
+//Used to update ORDER NOW button on home page.
+.btn-primary {
+    background: $primary;
+    transition: $smooth;
+    &:hover {
+        background: $primary-hover;
+    }
+}
