@@ -58,3 +58,33 @@ section.cart {
         color: $primary;
     }
 }
+
+//CSS used for login.ejs page
+section.login {
+    background: $secondary;
+    //We have subtracted the height of nav bar, so that we dont have to deal with scroll bar.
+    //vh, viewheight is used for whole screen from top to bottom , which will bring drop down
+    min-height: calc(100vh - 86px);
+
+    a {
+        color: $primary;
+        &:hover {
+            color: $primary;
+        }
+    }
+}
+
+//CSS used for register.ejs page
+section.register {
+    background: $secondary;
+    //We have subtracted the height of nav bar, so that we dont have to deal with scroll bar.
+    //vh, viewheight is used for whole screen from top to bottom , which will bring drop down
+    min-height: calc(100vh - 86px);
+
+    a {
+        color: $primary;
+        &:hover {
+            color: $primary;
+        }
+    }
+}
