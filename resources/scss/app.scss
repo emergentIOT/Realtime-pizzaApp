@@ -50,6 +50,11 @@ section.hero {
     }
 }
 
+//CSS used on cart.ejs page
 section.cart {
     background: $secondary;
+
+    .amount {
+        color: $primary;
+    }
 }
