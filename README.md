@@ -1,19 +1,19 @@
-# Realtime-pizzaApp
+Realtime-pizzaApp
+    -
 
-# App Dir
-- 
+App Dir
+    *
 
-# Public Dir
-- 
+Public Dir
+    *
 
-# Resources Dir
-- 
+Resources Dir
+    *
  
-# Routes Dir
-- 
+Routes Dir
+    *
 
 To setup project:
-
     * Start Laravel Mix - yarn watch
     * Run Dev Server - Yarn start-dev-server / npm run start-dev-server
     * Run Prod Server - Yarn start-prod-server / npm run start-prod-server
