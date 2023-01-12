@@ -12,28 +12,12 @@ app.set('view engine', 'ejs');
 app.use(expressLayout);
 app.use(express.static('public'));
 
+//defining routes
+require('./routes/web')(app);
+
 app.listen(PORT, () => {
     console.log(`Server is listening on port : ${PORT}`);
 });
 
-//Home page
-app.get("/", (req, res) => {
-    //Render home page html.
-    res.render('home');
-})
 
-//Cart page
-app.get("/cart", (req, res) => {
-    res.render('customers/cart');
-})
-
-//Login page
-app.get("/login", (req, res) => {
-    res.render('auth/login');
-})
-
-//Register page
-app.get("/register", (req,res) => {
-    res.render('auth/register');
-})
 

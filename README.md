@@ -12,9 +12,8 @@
 # Routes Dir
 - 
 
+To setup project:
 
-# Tailwind css
-
-- ml-4 : margin lext
-- px-4 : horizontal padding
-- py : top padding
+    * Start Laravel Mix - yarn watch
+    * Run Dev Server - Yarn start-dev-server / npm run start-dev-server
+    * Run Prod Server - Yarn start-prod-server / npm run start-prod-server

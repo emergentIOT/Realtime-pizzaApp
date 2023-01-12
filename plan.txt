@@ -13,6 +13,7 @@
 [.] Create cart page
     - order summary section
     - empty cart section
+[.] Move routes to route files
 [.] Create order controller and link it with server.js
 [.] Create order view with table for customer and admin
 [.] Create order single page with status
