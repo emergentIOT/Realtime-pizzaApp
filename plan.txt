@@ -1,4 +1,4 @@
-[.] Create directory structure
+[+] Create directory structure
 [.] Create a NPM project and install all dependencies
         - dependencies
             - express
@@ -14,6 +14,13 @@
     - order summary section
     - empty cart section
 [.] Move routes to route files
+[.] Add to cart functionality
+    - connect to mongo db 
+    - use connect-mongo for session store
+        - dependencies
+            - mongoose, express-session, connect-mongo, dotnev
+    - axios to send ajax request
+    - install notification library npm i noty
 [.] Create order controller and link it with server.js
 [.] Create order view with table for customer and admin
 [.] Create order single page with status
