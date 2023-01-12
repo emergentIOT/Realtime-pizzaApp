@@ -1,3 +1,5 @@
+const Menu = require('../../models/menu');
+
 function homeController() {
     /*
      Factory functions
@@ -10,8 +12,18 @@ function homeController() {
 
         // }
 
-        index(req, res) {
-            res.render('home')
+        async index(req, res) {
+            //Get list of pizzas from mongodb
+
+            //ANOTHER WAY OF GETTING RESULT
+            const pizzas = await Menu.find();
+            return res.render('home', { pizzas: pizzas });
+            
+            // ONE WAY OF GETTING RESULT
+            // Menu.find().then((pizzas) => {
+            //     res.render('home', { pizzas: pizzas });
+            // })
+            
         }
     }
 }
