@@ -5,6 +5,8 @@ const path = require('path');
 const expressLayout = require('express-ejs-layouts');
 const PORT = process.env.PORT || 3000 ;
 const mongoose = require('mongoose');
+const session = require('express-session');
+require('dotenv').config;
 
 //MongoDB connection
 const url = 'mongodb://localhost/pizza';
@@ -18,6 +20,16 @@ connection.once('open', () => {
 connection.on('error', () => {
     console.log(`Database error...$`);
 })
+
+//Express session config
+app.use(session({
+    //For cookies
+    secret: process.env.COOKIE_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { maxAge: 1000 * 60 * 60 * 24 } //24 hours
+
+}));
 
 //Assets
 app.use(express.static('public'));
