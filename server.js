@@ -7,6 +7,8 @@ const PORT = process.env.PORT || 3000 ;
 const mongoose = require('mongoose');
 const session = require('express-session');
 const flash = require('express-flash');
+//Used for session storage
+const MongoDbStore = require('connect-mongo')(session);
 require('dotenv').config;
 
 //MongoDB connection
@@ -22,12 +24,19 @@ connection.on('error', () => {
     console.log(`Database error...$`);
 })
 
+//Session store
+let mongoStore = new MongoDbStore({
+    mongooseConnection: connection,
+    collection: 'sessions'
+})
+
 //Express session config
 app.use(session({
     //For cookies
     //secret: process.env.COOKIE_SECRET,
     secret: 'dkhfksjnc,hdsk',
     resave: false,
+    store: mongoStore,
     saveUninitialized: false,
     cookie: { maxAge: 1000 * 60 * 60 * 24 } //24 hours
 
