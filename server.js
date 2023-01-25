@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000 ;
 const mongoose = require('mongoose');
 const session = require('express-session');
 const flash = require('express-flash');
-//Used for session storage
+//Used for session storage in mongo
 const MongoDbStore = require('connect-mongo')(session);
 require('dotenv').config;
 
