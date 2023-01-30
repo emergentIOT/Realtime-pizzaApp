@@ -14,12 +14,14 @@ __webpack_require__.r(__webpack_exports__);
 //All code written here will be transpile into public/js
 
 var addToCart = document.querySelectorAll('.add-to-cart');
+var cartCounter = document.querySelector('#cartCounter');
 function updateCart(pizza) {
   //Send call to server , to mention the added or updated pizza item. 
   //Can be done using AJAX call : fetch or axios. 
-
+  console.log("pizza : ", pizza);
   axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/update-cart', pizza).then(function (res) {
-    console.log(res);
+    console.log("res", res);
+    cartCounter.innerText = res.data.totalQty;
   });
 }
 addToCart.forEach(function (eachSingleButton) {
