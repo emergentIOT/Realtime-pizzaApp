@@ -15,6 +15,7 @@ function cartController() {
             //     totalPrice: 0
             // }
 
+            // Creating cart for the first time & aadding basic object structure.
             //If our cart is not available in session.
             if(!req.session.cart) {
                 req.session.cart = {
@@ -25,8 +26,17 @@ function cartController() {
                     totalPrice: 0
             }
             let cart = req.session.cart;
-            return res.json({ data: cart });
+            
+            // Check if item doesnt exist in cart , 
+            // if its available we only need to increment its quantity.
+            if(cart.items[req.body._id]) {
+
+            }
         }
+
+        return res.json({ data: cart });
+        }
+    
     }
 }
 
