@@ -49,6 +49,13 @@ app.use(flash());
 app.use(express.static('public'));
 app.use(express.json({}));
 
+//Global middleware
+app.use((req, res, next) => {
+    //Will pick data from session and keeps the cart number saved after refresh.
+    res.locals.session = req.session
+    next()
+})
+
 // Set template engine.
 app.use(expressLayout);
 app.set('views', path.join(__dirname, '/resources/views'));
