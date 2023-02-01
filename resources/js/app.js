@@ -13,10 +13,20 @@ function updateCart(pizza) {
     .then((res) => {
         //To update the text or counter in cart
         cartCounter.innerText = res.data.totalQty
-        //Notification
+        //Success notification
         new Noty({
             type: 'success',
-            text: 'Item added to cart'
+            timeout: 1000,
+            text: 'Item added to cart',
+            progressBar: false
+        }).show();
+    }).catch((error) => {
+        //Error Notification
+        new Noty({
+            type: 'error',
+            timeout: 1000,
+            text: `Something went wrong: ${error}`,
+            progressBar: false
         }).show();
     })
 
