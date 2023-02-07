@@ -3,7 +3,7 @@ const app = express();
 const ejs = require('ejs');
 const path = require('path');
 const expressLayout = require('express-ejs-layouts');
-const PORT = process.env.PORT || 3000 ;
+const PORT = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 const session = require('express-session');
 const flash = require('express-flash');
@@ -34,7 +34,7 @@ let mongoStore = new MongoDbStore({
 app.use(session({
     //For cookies
     //secret: process.env.COOKIE_SECRET,
-    secret: 'dkhfksjnc,hdsk',
+    secret: 'dkhfksjnchdsk',
     resave: false,
     store: mongoStore,
     saveUninitialized: false,

@@ -19,6 +19,7 @@ function cartController() {
             // }
             // for the first time creating cart and adding basic object structure
             if (!req.session.cart) {
+                console.log("I cam here to set cart object");
                 req.session.cart = {
                     items: {},
                     totalQty: 0,
@@ -26,7 +27,7 @@ function cartController() {
                 }
             }
             let cart = req.session.cart;
-
+            console.log("session", cart);
             // Check if item does not exist in cart 
             if(!cart.items[req.body._id]) {
                 cart.items[req.body._id] = {
@@ -40,6 +41,7 @@ function cartController() {
                 cart.totalQty = cart.totalQty + 1
                 cart.totalPrice =  cart.totalPrice + req.body.price
             }
+            console.log("after session ", cart);
             return res.json({ totalQty: cart.totalQty })
         }
     }

@@ -16,6 +16,7 @@ __webpack_require__.r(__webpack_exports__);
 //All code written here will be transpile into public/js
 
 
+//QuerySelectorAll returns all elements that matches a CSS selector(s)
 var addToCart = document.querySelectorAll('.add-to-cart');
 var cartCounter = document.querySelector('#cartCounter');
 function updateCart(pizza) {
@@ -43,6 +44,7 @@ function updateCart(pizza) {
 }
 addToCart.forEach(function (eachSingleButton) {
   eachSingleButton.addEventListener('click', function (e) {
+    console.log(eachSingleButton);
     var pizza = JSON.parse(eachSingleButton.dataset.pizza);
     updateCart(pizza);
   });

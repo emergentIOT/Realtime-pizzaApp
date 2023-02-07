@@ -2,9 +2,9 @@
 //All code written here will be transpile into public/js
 import axios from 'axios';
 import Noty from 'noty';
+//QuerySelectorAll returns all elements that matches a CSS selector(s)
 let addToCart = document.querySelectorAll('.add-to-cart');
 let cartCounter = document.querySelector('#cartCounter');
-
 
 function updateCart(pizza) {
     //Send call to server , to mention the added or updated pizza item. 
@@ -29,12 +29,12 @@ function updateCart(pizza) {
             progressBar: false
         }).show();
     })
-
 }
 
 addToCart.forEach((eachSingleButton) => {
+    
     eachSingleButton.addEventListener('click', (e) => {
-     
+        console.log(eachSingleButton);
         let pizza = JSON.parse(eachSingleButton.dataset.pizza);
         updateCart(pizza);
     })
