@@ -9,6 +9,7 @@ const session = require('express-session');
 const flash = require('express-flash');
 //Used for session storage in mongo
 const MongoDbStore = require('connect-mongo')(session);
+const passport = require('passport');
 require('dotenv').config;
 
 //MongoDB connection
@@ -23,6 +24,10 @@ connection.once('open', () => {
 connection.on('error', () => {
     console.log(`Database error...$`);
 })
+
+//Passport config
+app.use(passport.initialize());
+app.use(passport.session);
 
 //Session store
 let mongoStore = new MongoDbStore({
