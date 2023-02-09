@@ -35,7 +35,7 @@ function authController() {
             })
 
             //Hash Password
-            const hashedPassword = await bcrypt.hash(password);
+            const hashedPassword = await bcrypt.hash(password, 10);
             //Create a User
             const user = new User({
                 name: name,
@@ -43,6 +43,17 @@ function authController() {
                 password: hashedPassword
             })
 
+            //Save user
+            user.save().then((user) => {
+                //User added here, perform necessary action. 
+
+                //Login User here. 
+
+                return res.redirect('/')
+            }).catch((err) => {
+                req.flash('error', `We got the error: ${err}`);
+                return res.redirect('/register')
+            })
 
         }
     }
