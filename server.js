@@ -26,6 +26,8 @@ connection.on('error', () => {
 })
 
 //Passport config
+const passportInit = require('./app/config/passport');
+passportInit(passport);
 app.use(passport.initialize());
 app.use(passport.session);
 
