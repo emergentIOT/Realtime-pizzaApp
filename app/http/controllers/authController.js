@@ -1,4 +1,5 @@
 const User = require('../../models/user');
+const bcrypt = require('bcrypt');
 
 function authController() {
 
@@ -12,7 +13,7 @@ function authController() {
             res.render('auth/register');
         }, 
 
-        postRegister(req, res) {
+        async postRegister(req, res) {
             const { name, email, password } = req.body;
             //Validate Request, if fields are empty.
             if(!name || !email || !password) {
@@ -23,11 +24,23 @@ function authController() {
                 return res.redirect('/register')
             }
 
-            //if email exist in db, then redirect.
+            //If email exist in db, then redirect.
             User.exists({ email: email }, (err, result) => {
                 if(result) {
-                
+                    req.flash('error', 'Email already exist')
+                    req.flash('name', name)
+                    req.flash('email', email)
+                    return res.redirect('/register');
                 }
+            })
+
+            //Hash Password
+            const hashedPassword = await bcrypt.hash(password);
+            //Create a User
+            const user = new User({
+                name: name,
+                email: email,
+                password: hashedPassword
             })
 
 
