@@ -1,5 +1,6 @@
 const User = require('../../models/user');
 const bcrypt = require('bcrypt');
+const passport = require('passport');
 
 function authController() {
 
@@ -7,6 +8,37 @@ function authController() {
 
         login(req, res) {
             res.render('auth/login');
+        },
+
+        postLogin(req, res, next) {
+            /**
+             * 
+             *  -->  (err, user, info) === done(null, false, { message: `Something went wrong: ${err}` })
+             *  --> passport.authenticate will return a function that we need to recall, done at line 41
+             *      
+             */
+            passport.authenticate('local', (err, user, info) => {
+                if(err) {
+                    req.flash('error', info.message)
+                    return next(err)
+                }
+
+                if(!user) {
+                    req.flash('error', info.message)
+                    return res.redirect('/login')
+                }
+
+                //User exist
+                req.logIn(user, (err) => {
+                    if(err) {
+                        req.flash('error', info.message)
+                        return next(err)
+                    }
+
+                    //Login is successful, will redirect to /order later
+                    return res.redirect('/');
+                });
+            })(req, res, next)
         },
         
         register(req, res) {

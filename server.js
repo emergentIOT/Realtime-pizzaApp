@@ -25,11 +25,8 @@ connection.on('error', () => {
     console.log(`Database error...$`);
 })
 
-//Passport config
-const passportInit = require('./app/config/passport');
-passportInit(passport);
-app.use(passport.initialize());
-app.use(passport.session);
+
+
 
 //Session store
 let mongoStore = new MongoDbStore({
@@ -48,6 +45,13 @@ app.use(session({
     cookie: { maxAge: 1000 * 60 * 60 * 24 } //24 hours
 
 }));
+
+//Passport config
+const passportInit = require('./app/config/passport');
+
+passportInit(passport);
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Express flash
 app.use(flash());

@@ -27,6 +27,24 @@ function init(passport) {
         })
 
     }) )
+
+    /**
+     * If User login, we need to store id  or anything in session
+     * through that id we can check if user is logged in or not
+     */
+    passport.serializeUser((user, done) => {
+        done(null, user._id)
+    })
+
+    /**
+     * Its the opposite of serialize
+     * Also provides the id or any other property saved during serialize()
+     */
+    passport.deserializeUser((id, done) => {
+        User.findById(id, (err, user) => {
+            done(err, user)
+        })
+    })
 }
 
 module.exports = init
