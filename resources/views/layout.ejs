@@ -29,7 +29,9 @@
                 <li class="ml-6"><a href="/">Menu</a></li>
                 <li class="ml-6"><a href="#">Offers</a></li>
                 <% if(user) { %>
-                    <li class="ml-6"><a href="register">Logout</a></li>
+                    <form id="logout" action="/logout" method="POST">
+                        <li class="ml-6"><a onclick="document.getElementById('logout').submit()" href="#">Logout</a></li>
+                    </form>
                 <% } else { %>
                     <li class="ml-6"><a href="register">Register</a></li>
                     <li class="ml-6"><a href="login">Login</a></li>

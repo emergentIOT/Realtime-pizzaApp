@@ -40,6 +40,14 @@ function authController() {
                 });
             })(req, res, next)
         },
+
+        logout(req, res) {
+            req.logout(function(err) {
+                if (err) { return next(err); }
+                res.redirect('/login');
+              });
+            
+        },
         
         register(req, res) {
             res.render('auth/register');
