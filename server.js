@@ -66,6 +66,7 @@ app.use(express.json({}));
 app.use((req, res, next) => {
     //Will pick data from session and keeps the cart number saved after refresh.
     res.locals.session = req.session
+    res.locals.user = req.user
     next()
 })
 
