@@ -28,10 +28,13 @@
             <ul class="flex item-center">
                 <li class="ml-6"><a href="/">Menu</a></li>
                 <li class="ml-6"><a href="#">Offers</a></li>
+                <!-- This user is available from server.js , look for //Global middleware -->
                 <% if(user) { %>
+                    <li class="ml-6">
                     <form id="logout" action="/logout" method="POST">
-                        <li class="ml-6"><a onclick="document.getElementById('logout').submit()" href="#">Logout</a></li>
+                        <a onclick="document.getElementById('logout').submit()" href="#">Logout</a>
                     </form>
+                    </li>
                 <% } else { %>
                     <li class="ml-6"><a href="register">Register</a></li>
                     <li class="ml-6"><a href="login">Login</a></li>
