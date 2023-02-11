@@ -32,3 +32,14 @@
     - Database connection , dependencies mongoose
 [.] Build login using passport
     - Install dependencies passport passport-local express-session
+[.] Create order controller and link it to server.js
+[.] Create order view with table for customer and admin
+[.] Create orders single page with status
+[.] Place order functionality 
+[.] Show all my orders on customer orders page
+[.] Order tracker
+    - dependencies moment
+[.] Socket connection
+    - dependencies socket.installation
+[.] Build project for deployment
+[.] Deploy on live server
