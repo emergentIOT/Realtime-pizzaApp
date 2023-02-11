@@ -17,6 +17,14 @@ function authController() {
              *  --> passport.authenticate will return a function that we need to recall, done at line 41
              *      
              */
+
+            //Validate Request
+            // const { email, password } =  req.body;
+            // if(!email || !password) {
+            //     req.flash('error', 'Feilds are missing');
+            //     res.redirect('/login');
+            // }
+            
             passport.authenticate('local', (err, user, info) => {
                 if(err) {
                     req.flash('error', info.message)
