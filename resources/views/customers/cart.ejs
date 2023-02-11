@@ -32,6 +32,7 @@
         </div>
         <!--Div ends to show total amount-->
 
+        <% if(user) { %>
         <!--Form section-->
         <div>
             <!--If User is logged in-->
@@ -39,16 +40,16 @@
                 <input class="border border-gray-400 p-2 w-1/2 mb-4" placeholder="Phone Number" type="text">
                 <input class="border border-gray-400 p-2 w-1/2" placeholder="Address" type="text">
                 <div>
-                    <button class="btn-primary px-6 py-2 rounded-full text-white font-bold mt-6" type="submit">Order Now</button>
+                    <button class="inline-block cursor-pointer btn-primary px-6 py-2 rounded-full text-white font-bold mt-6" type="submit">Order Now</button>
 
                 </div>
             </form>
         </div>
-
+        <% } else { %>
         <!--If User is not logged in-->
-        <a href="" class="inline-block cursor-pointer btn-primary px-6 py-2 rounded-full text-white font-bold mt-6">Login to continue</a>
+        <a href="/login" class="inline-block cursor-pointer btn-primary px-6 py-2 rounded-full text-white font-bold mt-6">Login to continue</a>
         <!--Form section ends-->
-
+        <% } %>
     </div>
     <% } else { %>
     <!--When cart is empty-->
