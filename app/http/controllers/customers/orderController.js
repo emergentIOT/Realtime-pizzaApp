@@ -32,7 +32,7 @@ function orderController() {
             //Fetch orders of loggen in user from DB
             //Get orders baseed on customerId
             const orders = await Order.find({ customerId: req.user._id });
-            res.render('customer/orders', orders);
+            res.render('customers/order', {orders});
         }
     }
 }
