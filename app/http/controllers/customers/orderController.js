@@ -26,6 +26,13 @@ function orderController() {
                 req.flash('error', `Error while placing order: ${err}`)
                 return res.redirect('/cart')
             })
+        }, 
+
+        async index(req, res) {
+            //Fetch orders of loggen in user from DB
+            //Get orders baseed on customerId
+            const orders = await Order.find({ customerId: req.user._id });
+            res.render('customer/orders', orders);
         }
     }
 }
