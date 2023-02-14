@@ -25,18 +25,28 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="border px-4 py-2">
-                        <a href="/" class="link">jkhfsornvnkkhteuihkhiouo</a>
-                    </td>
-                    <td class="border px-4 py-2">
-                        Test address
-                    </td>
-                    <td class="border px-4 py-2">
-                        Time
-                    </td>
-                </tr>
+                <% if(orders.length) { %>
+                <% orders.forEach((order) => { %>
+                    <tr>
+                        <td class="border px-4 py-2">
+                            <a href="/" class="link"><%= order._id %></a>
+                        </td>
+                        <td class="border px-4 py-2">
+                            <%= order.address %>
+                        </td>
+                        <td class="border px-4 py-2">
+                            <%= order.time %>
+                        </td>
+                    </tr>
+                <% })%>
+                
+                <% } else { %>
+                    <tr>
+                        <td class="p-4"><span>No orders found !</span></td>
+                    </tr>
+                <% } %>
             </tbody>
         </table>
+        <!--Table ends-->
     </div>
 </section>
