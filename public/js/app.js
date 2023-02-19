@@ -50,6 +50,15 @@ addToCart.forEach(function (eachSingleButton) {
   });
 });
 
+//Remove alert message after X seconds.
+// #success-alert is the id given to small banner placed in order.ejs, line 9
+var alertMsg = document.querySelector('#success-alert');
+if (alertMsg) {
+  setTimeout(function () {
+    alertMsg.remove();
+  }, 2000);
+}
+
 /***/ }),
 
 /***/ "./node_modules/base64-js/index.js":

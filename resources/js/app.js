@@ -39,3 +39,12 @@ addToCart.forEach((eachSingleButton) => {
         updateCart(pizza);
     })
 })
+
+//Remove alert message after X seconds.
+// #success-alert is the id given to small banner placed in order.ejs, line 9
+const alertMsg = document.querySelector('#success-alert')
+if(alertMsg) {
+    setTimeout(() => {
+        alertMsg.remove()
+    }, 2000);
+}

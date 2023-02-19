@@ -1,4 +1,6 @@
 const Order = require('../../../models/order');
+//For time & date formatting
+const moment = require('moment');
 
 function orderController() {
     return {
@@ -20,19 +22,23 @@ function orderController() {
 
             order.save().then((result) => {
                 req.flash('success', 'Order places successfully')
-                // res.redirect('/customers/orders')
-                res.redirect('/')
+                //Empty cart
+                delete req.session.cart 
+                res.redirect('/customer/orders')
+                //res.redirect('/')
             }).catch((err) => {
                 req.flash('error', `Error while placing order: ${err}`)
                 return res.redirect('/cart')
             })
         }, 
 
+        //Fetch orders of loggen in user from DB
         async index(req, res) {
-            //Fetch orders of loggen in user from DB
             //Get orders baseed on customerId
-            const orders = await Order.find({ customerId: req.user._id });
-            res.render('customers/order', {orders});
+            const orders = await Order.find({ customerId: req.user._id }, 
+                null, 
+                { sort: { 'createdAt': -1 }});
+            res.render('customers/order', { orders: orders, moment: moment });
         }
     }
 }
